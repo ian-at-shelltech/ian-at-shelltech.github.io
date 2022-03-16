@@ -2900,6 +2900,7 @@ input, select, textarea {
 		.main.style1 {
 			background: #fff;
 			margin: 50px;
+			overflow-x: hidden;
 		}
 
 		.main.style2 {
