@@ -3451,11 +3451,11 @@ input, select, textarea {
 		
 		/* Skew Clipping */
 		#about-service-stacks .skew-wrapper, #about-collab-cmm .skew-wrapper {
-			width: 50%;
+			width: auto;
 		}
 		
 		#about-acacia .skew-wrapper {
-			width: 50%;
+			width: auto;
 			margin-left: 0;
 		}
 			
@@ -3532,14 +3532,6 @@ input, select, textarea {
 			text-align: center;
 		}
 		
-		/* Skew Clipping */
-		#about-service-stacks .skew-wrapper, #about-collab-cmm .skew-wrapper {
-			width: 100%;
-		}
-		
-		#about-acacia .skew-wrapper {
-			width: 100%;
-		}
 
 	}
 
