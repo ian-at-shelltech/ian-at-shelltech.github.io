@@ -115,21 +115,21 @@
 
             /*
              *
-            */
+             */
+            .extras-wrapper {
+                margin-bottom: 30px;
+            }
+
             .extras-wrapper .section-title {
                 font-weight: bold;
                 margin-bottom: 15px;
             }
 
             .extras-wrapper .extra-stat {
+                display: grid;
+                grid-template-columns: 15px auto;
                 margin-bottom: 15px;
                 padding-left: 10px;
-            }
-
-            .extras-wrapper .extra-stat:before {
-                content: '-';
-                position: absolute;
-                left: 10px;
             }
 
 
@@ -193,9 +193,11 @@
                         <option value="goals">Goals</option>
                         <option value="assists">Assists</option>
                         <option value="goalInvolvements">Goal Involvements</option>
+                        <option value="appearances">Appearances</option>
                         <option value="motmVotes">MOTM Votes</option>
                         <option value="motmWins">MOTM Wins</option>
                         <option value="ownGoals">Own Goals</option>
+                        <option value="yellowCards">Yellow Cards</option>
                         <option value="stabWounds">Stab Wounds</option>
                     </select>
 
@@ -249,31 +251,39 @@
                         <tbody>
                             <tr>
                                 <td class="name">Goals</td>
-                                <td class="val">1</td>
+                                <td class="val"></td>
                             </tr>
                             <tr>
                                 <td class="name">Assists</td>
-                                <td class="val">1</td>
+                                <td class="val"></td>
                             </tr>
                             <tr>
                                 <td class="name">Goal Involvements</td>
-                                <td class="val">1</td>
+                                <td class="val"></td>
+                            </tr>
+                            <tr>
+                                <td class="name">Appearances</td>
+                                <td class="val"></td>
                             </tr>
                             <tr>
                                 <td class="name">MOTM Votes</td>
-                                <td class="val">1</td>
+                                <td class="val"></td>
                             </tr>
                             <tr>
                                 <td class="name">MOTM Wins</td>
-                                <td class="val">1</td>
+                                <td class="val"></td>
                             </tr>
                             <tr>
                                 <td class="name">Own Goals</td>
-                                <td class="val">1</td>
+                                <td class="val"></td>
+                            </tr>
+                            <tr>
+                                <td class="name">Yellow Cards</td>
+                                <td class="val"></td>
                             </tr>
                             <tr>
                                 <td class="name">Stab Wounds</td>
-                                <td class="val">1</td>
+                                <td class="val"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -292,23 +302,26 @@
                 <div class="extras-wrapper">
 
                     <div class="section-title">Golden Boot</div>
-                    <div class="extra-stat">Scoring 19 Goals, Seb is this seasons <span class="highlight">Golden Boot Winner!</span></div>
-                    <div class="extra-stat">5 Goals came from penalties</div>
-                    <div class="extra-stat">Seb also assisted the most goals this season with 9, totalling 28 total goal involvements</div>
-                    <div class="extra-stat">Seb was responsible for 35% of goals and was involved in over half of all goals this season</div>
-                    <div class="extra-stat">Seb scored a brace in 5 separate games</div>
-
+                    <div class="extra-stat"><div>-</div><div>Scoring 19 Goals, Seb is this seasons <span class="highlight">Golden Boot Winner!</span></div></div>
+                    <div class="extra-stat"><div>-</div><div>19 goals came in 17 appearances, a goals-per-game rate of 1.12</div></div>
+                    <div class="extra-stat"><div>-</div><div>5 Goals came from penalties</div></div>
+                    <div class="extra-stat"><div>-</div><div>Seb also assisted the most goals this season with 9, totalling 28 total goal involvements</div></div>
+                    <div class="extra-stat"><div>-</div><div>Seb was responsible for 35% of goals and was involved in over half of all goals this season</div></div>
+                    <div class="extra-stat"><div>-</div><div>Seb scored a brace in 5 separate games</div></div>
+                    
                     <div class="section-title">Goals</div>
-                    <div class="extra-stat">Evergreen scored a total of 53 goals this season</div>
-                    <div class="extra-stat">2 goals are unaccounted for</div>
-                    <div class="extra-stat">17 separate plays scored </div>
-                    <div class="extra-stat">18 separate plays assisted a goal</div>
-                    <div class="extra-stat">With a single exception, all strikers and midfielders scored this season</div>
-
+                    <div class="extra-stat"><div>-</div><div>Evergreen scored a total of 53 goals this season</div></div>
+                    <div class="extra-stat"><div>-</div><div>2 goals are unaccounted for</div></div>
+                    <div class="extra-stat"><div>-</div><div>17 separate plays scored </div></div>
+                    <div class="extra-stat"><div>-</div><div>18 separate plays assisted a goal</div></div>
+                    <div class="extra-stat"><div>-</div><div>With a single exception, all strikers and midfielders scored this season</div></div>
+                    
                     <div class="section-title">Fun Facts</div>
-                    <div class="extra-stat">Aaron "Waz" Elliott played a full 90 minutes in goal after being stabbed in the hand during a home invasion. Andrew Butler was unable to play that same game due to a minor case of the sniffles.</div>
-                    <div class="extra-stat">During a game, James Key shouted "Get off the pitch you slag!" at a pensioner walking a dog. The pensioner did not respond.</div>
-                    <div class="extra-stat">...</div>
+                    <div class="extra-stat"><div>-</div><div>Aaron "Waz" Elliott played a full 90 minutes in goal after being stabbed in the hand during a home invasion. Andrew Butler was unable to play that same game due to a minor case of the sniffles.</div></div>
+                    <div class="extra-stat"><div>-</div><div>During a game, James Key shouted "Get off the pitch you slag!" at a pensioner walking a dog. The pensioner did not respond.</div></div>
+                    <div class="extra-stat"><div>-</div><div>Ore Francis has the highest goal involvements of any defender, join 5th of all players. He is also the only player to complete a pre-match warm up without wearing any shorts.</div></div>
+                    <div class="extra-stat"><div>-</div><div>Jacob Chalk broke the club record this season for pint-downing speed. No one managed to successfully time this feat however, as everyone was too pissed.</div></div>
+                    <div class="extra-stat"><div>-</div><div>Evergreen AFC pioneered the use of the "Tactical Welshman Substitution" this season when they couldn't decide which players should be on the pitch. The player switch caused confusion in the opposing team allowing Evergreen to quickly score their 4th goal of the game. Gareth Murphy still isn't sure if he should be on the pitch or not.</div></div>
 
                 </div>
 
@@ -318,6 +331,7 @@
         </div>
         
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="player_stats.js"></script>
         <script src="main.js"></script>
 
     </body>

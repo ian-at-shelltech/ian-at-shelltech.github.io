@@ -7,6 +7,7 @@ var statNames = [
     {"name": "Goals Scored", "ref": "goals"},
     {"name": "Goals Assisted", "ref": "assists"},
     {"name": "Goal Involvements", "ref": "goalInvolvements"},
+    {"name": "Appearances of 22 Games (2 games unaccounted for)", "ref": "appearances"},
     {"name": "MOTM Votes", "ref": "motmVotes"},
     {"name": "MOTM Wins", "ref": "motmWins"},
     {"name": "Own Goals", "ref": "ownGoals"},
@@ -16,360 +17,8 @@ var statNames = [
 /*
  *
  */
-var positionStats = [];//populated in "groupPlayerStatsToPosition"
-
-var playerStats = [
-    {
-      "id": 1,
-      "name": "Martin",
-      "position": "Defence",
-      "goals": 0,
-      "assists": 1,
-      "goalInvolvements": 1,
-      "motmVotes": 7,
-      "motmWins": 1,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 2,
-      "name": "Elliott",
-      "position": "Defence",
-      "goals": 0,
-      "assists": 0,
-      "goalInvolvements": 0,
-      "motmVotes": 0,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 3,
-      "name": "Mike B",
-      "position": "Midfield",
-      "goals": 2,
-      "assists": 1,
-      "goalInvolvements": 3,
-      "motmVotes": 16,
-      "motmWins": 2,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 4,
-      "name": "Tom B",
-      "position": "Midfield",
-      "goals": 1,
-      "assists": 1,
-      "goalInvolvements": 2,
-      "motmVotes": 20,
-      "motmWins": 1,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 5,
-      "name": "Rory",
-      "position": "Midfield",
-      "goals": 0,
-      "assists": 0,
-      "goalInvolvements": 0,
-      "motmVotes": 0,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 6,
-      "name": "Andy B",
-      "position": "Midfield",
-      "goals": 2,
-      "assists": 3,
-      "goalInvolvements": 5,
-      "motmVotes": 35,
-      "motmWins": 4,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 7,
-      "name": "Jake",
-      "position": "Midfield",
-      "goals": 1,
-      "assists": 2,
-      "goalInvolvements": 3,
-      "motmVotes": 1,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 8,
-      "name": "James C",
-      "position": "Midfield",
-      "goals": 1,
-      "assists": 3,
-      "goalInvolvements": 4,
-      "motmVotes": 3,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 9,
-      "name": "Ben C",
-      "position": "Defence",
-      "goals": 1,
-      "assists": 0,
-      "goalInvolvements": 1,
-      "motmVotes": 9,
-      "motmWins": 1,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 10,
-      "name": "Seb",
-      "position": "Striker",
-      "goals": 19,
-      "assists": 9,
-      "goalInvolvements": 28,
-      "motmVotes": 27,
-      "motmWins": 3,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 11,
-      "name": "Graham",
-      "position": "Midfield",
-      "goals": 1,
-      "assists": 0,
-      "goalInvolvements": 1,
-      "motmVotes": 2,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 12,
-      "name": "Waz",
-      "position": "Goal",
-      "goals": 0,
-      "assists": 1,
-      "goalInvolvements": 1,
-      "motmVotes": 25,
-      "motmWins": 3,
-      "ownGoals": 0,
-      "stabWounds": 1
-    },
-    {
-      "id": 13,
-      "name": "Brian",
-      "position": "Midfield",
-      "goals": 1,
-      "assists": 2,
-      "goalInvolvements": 3,
-      "motmVotes": 4,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 14,
-      "name": "Sam",
-      "position": "Defence",
-      "goals": 0,
-      "assists": 2,
-      "goalInvolvements": 2,
-      "motmVotes": 15,
-      "motmWins": 1,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 15,
-      "name": "Ore",
-      "position": "Defence",
-      "goals": 1,
-      "assists": 4,
-      "goalInvolvements": 5,
-      "motmVotes": 23,
-      "motmWins": 1,
-      "ownGoals": 1,
-      "stabWounds": 0
-    },
-    {
-      "id": 16,
-      "name": "Waqaas",
-      "position": "Defence",
-      "goals": 0,
-      "assists": 0,
-      "goalInvolvements": 0,
-      "motmVotes": 0,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 17,
-      "name": "Ben J",
-      "position": "Midfield",
-      "goals": 1,
-      "assists": 2,
-      "goalInvolvements": 3,
-      "motmVotes": 0,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 18,
-      "name": "Beks",
-      "position": "Striker",
-      "goals": 8,
-      "assists": 2,
-      "goalInvolvements": 10,
-      "motmVotes": 15,
-      "motmWins": 1,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 19,
-      "name": "James K",
-      "position": "Midfield",
-      "goals": 3,
-      "assists": 1,
-      "goalInvolvements": 4,
-      "motmVotes": 4,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 20,
-      "name": "Alex",
-      "position": "Midfield",
-      "goals": 2,
-      "assists": 1,
-      "goalInvolvements": 3,
-      "motmVotes": 18,
-      "motmWins": 3,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 21,
-      "name": "James M",
-      "position": "Midfield",
-      "goals": 4,
-      "assists": 2,
-      "goalInvolvements": 6,
-      "motmVotes": 13,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 22,
-      "name": "Gareth",
-      "position": "Midfield",
-      "goals": 2,
-      "assists": 2,
-      "goalInvolvements": 4,
-      "motmVotes": 6,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 23,
-      "name": "Tom N",
-      "position": "Striker",
-      "goals": 1,
-      "assists": 0,
-      "goalInvolvements": 1,
-      "motmVotes": 0,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 24,
-      "name": "Harry",
-      "position": "Defence",
-      "goals": 0,
-      "assists": 0,
-      "goalInvolvements": 0,
-      "motmVotes": 5,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 25,
-      "name": "Nando",
-      "position": "Midfield",
-      "goals": 0,
-      "assists": 0,
-      "goalInvolvements": 0,
-      "motmVotes": 4,
-      "motmWins": 1,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 26,
-      "name": "Matt P",
-      "position": "Defence",
-      "goals": 0,
-      "assists": 0,
-      "goalInvolvements": 0,
-      "motmVotes": 0,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 27,
-      "name": "Ian",
-      "position": "Midfield",
-      "goals": 0,
-      "assists": 6,
-      "goalInvolvements": 6,
-      "motmVotes": 22,
-      "motmWins": 1,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 28,
-      "name": "Matt S",
-      "position": "Defence",
-      "goals": 0,
-      "assists": 0,
-      "goalInvolvements": 0,
-      "motmVotes": 17,
-      "motmWins": 3,
-      "ownGoals": 0,
-      "stabWounds": 0
-    },
-    {
-      "id": 29,
-      "name": "Jon",
-      "position": "Midfield",
-      "goals": 0,
-      "assists": 0,
-      "goalInvolvements": 0,
-      "motmVotes": 0,
-      "motmWins": 0,
-      "ownGoals": 0,
-      "stabWounds": 0
-    }
-]
-
-
+//populated in "groupPlayerStatsToPosition"
+var positionStats = [];
 
 /*
  * ----------------------------------------------------------------------------------------------------------------------------------------
@@ -429,14 +78,16 @@ function groupPlayerStatsToPosition() {
     for(let player of playerStats) {
 
         let pos = player.position;
-        let data = tempArr[pos] ? tempArr[pos] :  {"name": pos, "goals": 0,"assists": 0, "goalInvolvements": 0, "motmVotes": 0, "motmWins": 0, "ownGoals": 0, "stabWounds": 0 }
+        let data = tempArr[pos] ? tempArr[pos] :  {"name": pos, "goals": 0,"assists": 0, "goalInvolvements": 0, "appearances": 0, "motmVotes": 0, "motmWins": 0, "ownGoals": 0, "yellowCards": 0, "stabWounds": 0 }
 
         data.goals += player.goals;
         data.assists += player.assists;
         data.goalInvolvements += player.goalInvolvements;
+        data.appearances += player.appearances;
         data.motmVotes += player.motmVotes;
         data.motmWins += player.motmWins;
         data.ownGoals += player.ownGoals;
+        data.yellowCards += player.yellowCards;
         data.stabWounds += player.stabWounds;
         
         tempArr[pos] = data;
@@ -557,9 +208,11 @@ function doPopulatePlayerTable(playerId) {
     $(tRows[0]).find('td.val').text(player.goals)
     $(tRows[1]).find('td.val').text(player.assists)
     $(tRows[2]).find('td.val').text(player.goalInvolvements)
-    $(tRows[3]).find('td.val').text(player.motmVotes)
-    $(tRows[4]).find('td.val').text(player.motmWins)
-    $(tRows[5]).find('td.val').text(player.ownGoals)
-    $(tRows[6]).find('td.val').text(player.stabWounds)
+    $(tRows[3]).find('td.val').text(player.appearances)
+    $(tRows[4]).find('td.val').text(player.motmVotes)
+    $(tRows[5]).find('td.val').text(player.motmWins)
+    $(tRows[6]).find('td.val').text(player.ownGoals)
+    $(tRows[7]).find('td.val').text(player.yellowCards)
+    $(tRows[8]).find('td.val').text(player.stabWounds)
 
 }
