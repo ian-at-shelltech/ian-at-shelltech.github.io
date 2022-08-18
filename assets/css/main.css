@@ -3294,7 +3294,20 @@ input, select, textarea {
 		}
 
 		#footer .icons {
-			margin: 0;
+            margin: 0 0 2em 0;
+		}
+
+            #footer .icons li:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+            #footer .icons li a {
+                border-bottom: none;
+            }
+            
+        #footer .company-details {
+            font-size: 0.8em;
 		}
 
 		#footer .copyright {
