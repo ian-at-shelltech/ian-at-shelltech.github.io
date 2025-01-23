@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="assets/js/main.js"></script>
+    <title>Izzy Sempill</title>
+
+    <style>
+
+        #main-content .main-content-header .bg-image {
+            background-image: url(assets/images/headers/cover-collage.jpg);
+            background-position-y: bottom;
+        }
+
+        .recent-work-image-grid {
+            display: grid;
+            height: 615px;
+            width: calc(100% - 15px);
+            gap: 15px;
+            grid-template-columns: 40% 60%;
+            grid-template-rows: 300px 300px;
+        }
+
+        .recent-work-image-grid div {
+            background-color: #f2f2f2;
+        }
+
+        .recent-work-image-grid div:nth-child(2) {
+            grid-row: span 2;
+        }
+
+        .recent-work-image-grid div img {
+            height: 100%;
+            width: 100%
+        }
+
+        /************************************/
+        .image-hscroller {
+            margin-top: 20px;
+            width: calc(100% + 24px); /* + 24px so it goes to the edge of the screen, overriding the padding */
+            overflow-x: scroll;
+            white-space: nowrap;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+
+        }
+
+        .image-hscroller::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hscroller-item {
+            height: 300px;
+            display: inline-block;
+            padding-right: 12px;
+            scroll-snap-align: center;
+        }
+
+        .scroll-wrapper .hscroller-item:last-child {
+            padding-right: 24px; /* add the page padding back to the last item */
+        }
+
+        .hscroller-item img {
+            height: 100%;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- Page Content -->
+    <div id="page-container">
+
+        <!-- Top Bar -->
+        <div id="topbar">
+
+    <div class="content-wrapper">
+
+        <span class="logo logo-font" onclick="window.location=window.location.origin">
+            Izzy Sempill
+        </span>
+    
+        <div class="nav-layout">
+            <ul>
+                <li>
+                    <a href="/izzyart">About</a>
+                    <div></div>
+                </li>
+                <li><a href="/izzyart/printshop">Print Shop</a></li>
+                <li><a href="/izzyart">Original Pieces</a></li>
+                <li><a href="/izzyart/recentwork">Recent Work</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- Side Bar 
+        @ @include('sidebar.html', {active: '/recentwork'}) -->
+
+        <!-- Main Content -->
+        <div id="main-content" class="home-page">
+            
+            <div class="main-content-header parallax-scroll-off">
+                <div class="bg-image"></div>
+                <div class="main-content-title">
+                    <span>Recent Work</span>
+                    <span class="subtitle">A bit of text here would look nice i think, because it adds a bit of verticality</span>
+                </div>
+
+            </div>
+
+            <div class="main-content-body">
+
+                <!-- Postcard Art Intro -->
+                <div class="content-element text-block" style="padding-top:24px">
+                              
+                    <div class="image-description-layout">
+
+                        <div>
+                            <img src="https://placehold.co/1200x1600">
+                        </div>
+                        <div>
+                            <p class="text-block-heading" style="margin-top: 0;">Postcard Art</p>
+                            <p class="text-block-subheading">Water Street Gallery, Todmorden</p>
+                            <p class="text-block-content">I'm really pleased to have my work exhibited at Water Street Gallery. I created two emulsion transfers of wintery scenes for their Postcard Art call-out. I love postcard-sized art because it's accessible, affordable and welcomes a broad range of styles and mediums.</p>
+                            <p class="text-block-content">Emulsion transfers can have an ethereal, worn quality to them. For me, they show how photographs can represent faded memories. I think transfers work well as postcard-sized pieces - when the viewer looks closely, they'll start to notice the layers, marks and textures that are created naturally through the process.</p>
+                            <p class="text-block-content">As with film photography, the outcome of an emulsion transfer is unclear until the very end, which helps me to relinquish control of the outcome and enjoy the making process!</p>
+                            <p class="text-block-content">My work is displayed alongside larger pieces from the Seeds of Change collection. The exhibitions run from Nov 2024 - Jan 2025.</p>        
+                        </div>
+
+                    </div>
+  
+                </div>
+
+                <!-- Additional Images (Default Screens) -->
+                <div class="content-element recent-work-image-grid non-mobile">
+
+                    <div><img src="https://placehold.co/600x400"></div>
+                    <div><img src="https://placehold.co/800x800"></div>
+                    <div><img src="https://placehold.co/600x400"></div>
+
+                </div>
+
+
+                <!--TESTING-->
+                <div class="image-hscroller mobile-only">
+
+                    <div class="scroll-wrapper">
+                        <div class="hscroller-item"><img src="https://placehold.co/400x400"></div>
+                        <div class="hscroller-item"><img src="https://placehold.co/400x400"></div>
+                        <div class="hscroller-item"><img src="https://placehold.co/400x400"></div>
+                        <div class="hscroller-item"><img src="https://placehold.co/400x400"></div>
+                        <div class="hscroller-item"><img src="https://placehold.co/400x400"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div id="footer">
+
+    <div class="content-wrapper">
+
+        <span class="logo logo-font logo-font-white">Izzy Sempill</span>
+        <div class="nav nav-layout">
+            <ul>
+                <li><a>About</a></li>
+                <li><a>Print Shop</a></li>
+                <li><a>Original Pieces</a></li>
+                <li><a>Recent Work</a></li>
+                <li><a>Contact</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
