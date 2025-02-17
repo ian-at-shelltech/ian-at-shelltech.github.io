@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Give+You+Glory&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/main.css" />
     <script src="../assets/js/main.js"></script>
     <title>Izzy Sempill</title>
@@ -32,11 +32,13 @@
         .product-layout .product-image-section {
             flex: 1 0 360px;
             box-sizing: border-box;
+            max-width: 100%;
         }   
 
         .product-layout .product-details-section {
             flex: 1 0 360px;
             box-sizing: border-box;
+            max-width: 100%;
         }
 
         /* Headings */
@@ -44,6 +46,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 10px;
         }
 
         .product-layout .product-details-section .main-product-details-wrapper .product-details-headings {
@@ -112,7 +115,6 @@
             color: var(--font-colour-subheading-light);
         }
 
-
         /*
          * Slideshow
          */
@@ -126,7 +128,7 @@
 
         .image-grid-layout .slideshow-image-wrapper img {
             max-width: 100%;
-            max-height: 650px;
+            max-height: 700px;
         }
 
 
@@ -135,13 +137,53 @@
 </head>
 <body>
     
+    <!-- Side Bar -->
+    <div id="sidebar-shield">
+
+    <!-- Side Bar -->
+    <div id="sidebar">
+
+        <div class="sidebar-header">
+            <span class="close-icon" onclick="closeSidebar()">
+                <img src="/assets/icons/close.svg" height="24">
+            </span>
+            <span class="logo logo-font">
+                Izzy Sempill
+            </span>
+        </div>
+
+        <div class="sidebar-content">
+
+            <div class="sidebar-items">
+
+                <div class="nav-layout">
+                    <ul>
+                        <li>
+                            <a href="/">About</a>
+                            <div></div>
+                        </li>
+                        <li><a href="/printshop">Print Shop</a></li>
+                        <!--<li><a href="/">Original Pieces</a></li>-->
+                        <li><a href="/exhibitions">Exhibitions</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
     <!-- Page Content -->
     <div id="page-container">
 
         <!-- Top Bar -->
         <div id="topbar">
 
-    <div class="content-wrapper">
+    <!-- Standard Content -->
+    <div class="content-wrapper non-mobile">
 
         <span class="logo logo-font" onclick="window.location=window.location.origin">
             Izzy Sempill
@@ -150,16 +192,30 @@
         <div class="nav-layout">
             <ul>
                 <li>
-                    <a href="/izzyart">About</a>
+                    <a href="/">About</a>
                     <div></div>
                 </li>
-                <li><a href="/izzyart/printshop">Print Shop</a></li>
-                <li><a href="/izzyart">Original Pieces</a></li>
-                <li><a href="/izzyart/recentwork">Recent Work</a></li>
+                <li><a href="/printshop">Print Shop</a></li>
+                <!--<li><a href="/">Original Pieces</a></li>-->
+                <li><a href="/exhibitions">Exhibitions</a></li>
             </ul>
         </div>
 
     </div>
+
+
+    <!-- Standard Content -->
+    <div class="content-wrapper mobile-only">
+        <div class="mobile-options">
+            <span class="burger-menu" onclick="openSidebar()">
+                <img src="/assets/icons/burger-menu.svg" height="24">
+            </span>
+            <span class="logo logo-font" onclick="window.location=window.location.origin">
+                Izzy Sempill
+            </span>    
+        </div>
+    </div>
+
 
 </div>
 
@@ -243,7 +299,7 @@
                         <div class="main-product-details-wrapper">
                             <div>
                                 <span class="product-details-subheading">Collages</span>
-                                <span class="product-details-headings">Circles</span>
+                                <span class="product-details-headings">Circles - A4</span>
                             </div>
                             <span class="product-details-price">£15</span>
                         </div>
@@ -271,10 +327,10 @@
         <span class="logo logo-font logo-font-white">Izzy Sempill</span>
         <div class="nav nav-layout">
             <ul>
-                <li><a>About</a></li>
-                <li><a>Print Shop</a></li>
-                <li><a>Original Pieces</a></li>
-                <li><a>Recent Work</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/printshop">Print Shop</a></li>
+                <!--<li><a>Original Pieces</a></li>-->
+                <li><a href="/exhibitions">Exhibitions</a></li>
                 <li><a>Contact</a></li>
             </ul>
         </div>

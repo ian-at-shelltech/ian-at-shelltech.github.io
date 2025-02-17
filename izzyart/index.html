@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Give+You+Glory&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css" />
     <script src="assets/js/main.js"></script>
     <title>Izzy Sempill</title>
@@ -14,7 +14,7 @@
     <style>
 
          #main-content .main-content-header .bg-image {
-            background-image: url(assets/images/headers/cover-abstracts.jpg);
+            background-image: url(assets/images/headers/cover-about.jpg);
             background-position-y: top;
             border-bottom: 1px solid var(--font-grey-border);
         }
@@ -68,13 +68,53 @@
 </head>
 <body>
     
+    <!-- Side Bar -->
+    <div id="sidebar-shield">
+
+    <!-- Side Bar -->
+    <div id="sidebar">
+
+        <div class="sidebar-header">
+            <span class="close-icon" onclick="closeSidebar()">
+                <img src="/assets/icons/close.svg" height="24">
+            </span>
+            <span class="logo logo-font">
+                Izzy Sempill
+            </span>
+        </div>
+
+        <div class="sidebar-content">
+
+            <div class="sidebar-items">
+
+                <div class="nav-layout">
+                    <ul>
+                        <li>
+                            <a href="/">About</a>
+                            <div></div>
+                        </li>
+                        <li><a href="/printshop">Print Shop</a></li>
+                        <!--<li><a href="/">Original Pieces</a></li>-->
+                        <li><a href="/exhibitions">Exhibitions</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
     <!-- Page Content -->
     <div id="page-container">
 
         <!-- Top Bar -->
         <div id="topbar">
 
-    <div class="content-wrapper">
+    <!-- Standard Content -->
+    <div class="content-wrapper non-mobile">
 
         <span class="logo logo-font" onclick="window.location=window.location.origin">
             Izzy Sempill
@@ -83,21 +123,32 @@
         <div class="nav-layout">
             <ul>
                 <li>
-                    <a href="/izzyart">About</a>
+                    <a href="/">About</a>
                     <div></div>
                 </li>
-                <li><a href="/izzyart/printshop">Print Shop</a></li>
-                <li><a href="/izzyart">Original Pieces</a></li>
-                <li><a href="/izzyart/recentwork">Recent Work</a></li>
+                <li><a href="/printshop">Print Shop</a></li>
+                <!--<li><a href="/">Original Pieces</a></li>-->
+                <li><a href="/exhibitions">Exhibitions</a></li>
             </ul>
         </div>
 
     </div>
 
-</div>
 
-        <!-- Side Bar 
-        @ @include('sidebar.html', {active: '/'}) -->
+    <!-- Standard Content -->
+    <div class="content-wrapper mobile-only">
+        <div class="mobile-options">
+            <span class="burger-menu" onclick="openSidebar()">
+                <img src="/assets/icons/burger-menu.svg" height="24">
+            </span>
+            <span class="logo logo-font" onclick="window.location=window.location.origin">
+                Izzy Sempill
+            </span>    
+        </div>
+    </div>
+
+
+</div>
 
         <!-- Main Content -->
         <div id="main-content" class="home-page">
@@ -112,73 +163,93 @@
 
             <div class="main-content-body">
 
-                <!-- Welcome Message -->
-                <div class="content-element text-block welcome-content">
-                    <p class="text-block-subheading">Hi, I'm Izzy</p>
-                    <p class="text-block-subheading">I'm a multidisciplinary artist and art teacher, based in West Yorkshire.</p>
-                </div>
+                <div class="section">
 
-                <div class="welcome-messages text-block">
-                    <div class="welcome-profile-image">
-                        <img src="assets/images/izzy-portrait.jpg" style="height: 400px">
+                    <!-- Welcome Message -->
+                    <div class="content-element text-block welcome-content">
+                        <p class="text-block-subheading">Hi, I'm Izzy</p>
+                        <p class="text-block-subheading">I'm a multidisciplinary artist and art teacher, based in West Yorkshire.</p>
                     </div>
-                    <div class="text-block-content">
-                        <p>As an artist, my work spans a range of mediums. I find so much joy in experimentation and learning new techniques - exploring the textures, properties and possibilities of different materials. </p>
-                    </div>
-                    <div class="text-block-content">
-                        <p>tend not to plan my work too carefully. I prefer to let the materials guide me and embrace unexpected outcomes, then refine the process until I’m satisfied with the result.</p>
-                    </div>
-                    <div class="text-block-content">
-                        <p>On this site, you’ll find prints of some of my collages, life drawings and mixed media pieces. There are original pieces for sale too - I’ve been really enjoying working with texture paste and watercolour on wooden boards lately!</p>
-                    </div>
-                    <div class="text-block-content link-content">
-                        <a class="button-link" href="/izzyart/recentwork">See my recent work</a>
-                    </div>
-                    <div class="text-block-content">
-                        <p>I have loads of experience with schools and young people. I worked in various pastoral roles with secondary and FE students before training to become an art teacher. I'm a strong advocate for arts education and ensuring young people have access to creative and cultural opportunities. </p>
-                    </div>
-                    <div class="text-block-content">
-                        <p>I am currently broadening my practice to engage with local communities - something I have always wanted to do - through studying an MA in Socially Engaged Arts Practice. As the next stage in my career, I hope to facilitate collective, creative experiences that represent the participants’ experiences and promote positive social change. </p>
-                    </div>
-                    <div class="text-block-content">
-                        <p>If you are interested in collaborating on community or family projects, please get in touch! </p>
-                    </div>
-                    <div class="text-block-content link-content">
-                        <a class="button-link" href="/izzyart">Contact me</a>
+
+                    <div class="welcome-messages text-block">
+
+                        <div class="text-block-content">
+                            <p>As an artist, my work spans a range of mediums. I find so much joy in experimentation and learning new techniques - exploring the textures, properties and possibilities of different materials. </p>
+                        </div>
+                        <div class="text-block-content">
+                            <p>I tend not to plan my work too carefully. I prefer to let the materials guide me and embrace unexpected outcomes, then refine the process until I'm satisfied with the result.</p>
+                        </div>
+                        <div class="text-block-content">
+                            <p>On this site, you'll find prints of some of my collages, life drawings and mixed media pieces. There are original pieces for sale too - I've been really enjoying working with texture paste and watercolour on wooden boards lately!</p>
+                        </div>
+
                     </div>
 
                 </div>
                
+                <div class="divider"></div>
+
+                <!-- Image Scroller (Mobile) -->
+                <div class="image-hscroller mobile-only">
+                    <div class="scroll-wrapper">
+                        <div class="hscroller-item"><img src="assets/images/examples/example-work-1.png"></div>
+                        <div class="hscroller-item"><img src="assets/images/examples/example-work-2.png"></div>
+                        <div class="hscroller-item"><img src="assets/images/examples/example-work-3.png"></div>
+                        <div class="hscroller-item"><img src="assets/images/examples/example-work-4.png"></div>
+                        <div class="hscroller-item"><img src="assets/images/examples/example-work-5.png"></div>
+                        <div class="hscroller-item"><img src="assets/images/examples/example-work-6.png"></div>
+                    </div>
+                </div>
+
+                <!-- Image Grid (Non-Mobile) -->
+                <div class="image-grid-layout non-mobile">
+                    <div class="grid-item"><img src="assets/images/examples/example-work-1.png"></div>
+                    <div class="grid-item"><img src="assets/images/examples/example-work-2.png"></div>
+                    <div class="grid-item"><img src="assets/images/examples/example-work-3.png"></div>
+                    <div class="grid-item"><img src="assets/images/examples/example-work-4.png"></div>
+                    <div class="grid-item"><img src="assets/images/examples/example-work-5.png"></div>
+                    <div class="grid-item"><img src="assets/images/examples/example-work-6.png"></div>
+                </div>
 
                 <div class="divider"></div>
 
-                <!-- Image Grid -->
-                <div class="content-element image-grid">
+                <!-- More Text -->
+                <div class="welcome-messages text-block">
 
-                    <div class="text-block">
-                        <p class="text-block-subheading">Examples of my work:</p>
+                    <div class="text-block-content">
+                        <p>I have loads of experience with schools and young people. I worked in various pastoral roles with secondary and college students before training to become an art teacher. I'm a strong advocate for arts education and ensuring young people have access to creative and cultural opportunities. </p>
+                    </div>
+                    <div class="text-block-content">
+                        <p>I am currently broadening my practice to engage with local communities - something I have always wanted to do - through studying an MA in Socially Engaged Arts Practice. As the next stage in my career, I hope to facilitate the creation of collective artworks, which represent the participants’ experiences and promote positive social change. </p>
+                    </div>
+                    <div class="text-block-content">
+                        <p>If you are interested in collaborating on community or family projects, please get in touch! </p>
                     </div>
 
-                    <div class="image-grid-layout">
-                        
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-                        <div class="grid-item"><img src="https://placehold.co/600x600"></div>
-        
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Image Scroller (Mobile) -->
+                <div class="image-hscroller mobile-only">
+                    <div class="scroll-wrapper">
+                        <div class="hscroller-item"><img src="assets/images/examples/example-work-7.png"></div>
+                        <div class="hscroller-item"><img src="assets/images/examples/example-work-8.png"></div>
+                        <div class="hscroller-item"><img src="assets/images/examples/example-work-9.png"></div>
+                        <div class="hscroller-item"><img src="assets/images/examples/example-work-10.png"></div>
+                        <div class="hscroller-item"><img src="assets/images/examples/example-work-11.png"></div>
+                        <div class="hscroller-item"><img src="assets/images/examples/example-work-12.png"></div>
                     </div>
-                    
+                </div>
+
+                <!-- Image Grid (Non-Mobile) -->
+                <div class="image-grid-layout non-mobile">
+                    <div class="grid-item"><img src="assets/images/examples/example-work-7.png"></div>
+                    <div class="grid-item"><img src="assets/images/examples/example-work-8.png"></div>
+                    <div class="grid-item"><img src="assets/images/examples/example-work-9.png"></div>
+                    <div class="grid-item"><img src="assets/images/examples/example-work-10.png"></div>
+                    <div class="grid-item"><img src="assets/images/examples/example-work-11.png"></div>
+                    <div class="grid-item"><img src="assets/images/examples/example-work-12.png"></div>
                 </div>
 
                 <div class="divider"></div>
@@ -187,8 +258,8 @@
                 <div class="content-element text-block">
                     <p class="text-block-subheading">Qualifications:</p>
                     <p class="text-block-content">BA History of Art - University of Brighton</p>
-                    <p class="text-block-content">PGCE Secondary Art & Design - Manchester Metropolitan University (QTS + ECT)</p>
-                    <p class="text-block-content">Currently studying MA Socially Engaged Arts Practice at University of Salford, alongside teaching FE.</p>
+                    <p class="text-block-content">PGCE Secondary Art & Design (QTS + ECT) - Manchester Metropolitan University</p>
+                    <p class="text-block-content">Currently studying MA Socially Engaged Arts Practice at University of Salford, alongside teaching post-16.</p>
                 </div>
 
             </div>
@@ -201,10 +272,10 @@
         <span class="logo logo-font logo-font-white">Izzy Sempill</span>
         <div class="nav nav-layout">
             <ul>
-                <li><a>About</a></li>
-                <li><a>Print Shop</a></li>
-                <li><a>Original Pieces</a></li>
-                <li><a>Recent Work</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/printshop">Print Shop</a></li>
+                <!--<li><a>Original Pieces</a></li>-->
+                <li><a href="/exhibitions">Exhibitions</a></li>
                 <li><a>Contact</a></li>
             </ul>
         </div>

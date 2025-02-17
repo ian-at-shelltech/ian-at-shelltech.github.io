@@ -14,7 +14,6 @@ html, body {
     --layout-max-width: 1280px;
 
     --topbar-height: 56px;
-    --sidebar-width: 250px;
     --sidebar-font-colour: #f9f9f9;
     --sidebar-background: #1c1c1c;
 
@@ -59,6 +58,24 @@ body {
     padding: 20px;
     background-color: white;
     border-bottom: 1px solid var(--font-grey-border);
+    height: 67px;
+    box-sizing: border-box;
+}
+
+#topbar .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: var(--layout-max-width);
+    margin: 0 auto;
+}
+
+#topbar .content-wrapper .mobile-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+#topbar .content-wrapper .mobile-options .burger-menu {
+    cursor: pointer;
 }
 
 #topbar .content-wrapper {
@@ -75,6 +92,10 @@ body {
     cursor: pointer;
 }
 
+#topbar .content-wrapper ul li {
+    font-size: 18px;
+ }
+
 #topbar .content-wrapper ul li a {
    cursor: pointer;
    opacity: 0.85;
@@ -89,10 +110,6 @@ body {
  }
 
 
-#sidebar {
-    display: block;
-}
-
 .mobile-only {
     display: none!important;
 }
@@ -100,13 +117,53 @@ body {
 /*
  * Sidebar
  */
-#sidebar {
+#sidebar-shield {
     height: 100%;
-    width:  var(--sidebar-width);
-    color: var(--sidebar-font-colour);
-    background-color: var(--sidebar-background);
+    width: 100%;
     position: fixed;
     user-select: none;
+    z-index: 99;
+    background-color: RGBA(0, 0, 0, 0);
+    transition: background-color 0.3s;
+}
+
+#sidebar-shield:not(.display) {
+    display: none;
+} 
+
+#sidebar-shield.showing {
+    background-color: RGBA(0, 0, 0, 0.5);
+}
+
+#sidebar {
+    height: 100%;
+    width: 0px;
+    max-width: 100vw;
+    color: var(--font-colour-subheading);
+    background-color: #fefdfd;
+    background-color: RGBA(255, 255, 255, 1);
+    position: fixed;
+    user-select: none;
+    box-shadow: 0 0 40px 0 RGBA(0, 0, 0, 0.35);
+    overflow-x: hidden;
+    white-space: nowrap;
+    transition: width 0.3s;
+}
+
+#sidebar-shield.showing #sidebar {
+    width: 275px;
+}
+
+#sidebar .sidebar-header {
+    height: 67px;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#sidebar .sidebar-content {
+    padding: 20px;
 }
 
 #sidebar .sidebar-content .sidebar-header {
@@ -115,20 +172,20 @@ body {
     font-size: var(--font-size-heading);
 }
 
+#sidebar .sidebar-content .sidebar-header .close-icon {
+    cursor: pointer;
+}
+
 #sidebar .sidebar-content .sidebar-items ul {
     list-style-type: none;
     font-size: var(--font-size-text);
 }
 
-
 #sidebar .sidebar-content .sidebar-items ul li {
     cursor: pointer;
     position: relative;
-    margin-top: 8px;
-}
-
-#sidebar .sidebar-content .sidebar-items ul li:not(.submenu) {
-    padding: 3px;
+    margin: 15px 0;
+    float: none;
 }
 
 #sidebar .sidebar-content .sidebar-items ul li.active {
@@ -205,11 +262,18 @@ body {
     font-weight: normal;
 }
 
+#footer .content-wrapper .nav ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
 /*
  * Logo
  */
 .logo-font {
-    font-family: 'Bad Script', serif;
+    /*font-family: 'Bad Script', serif;*/
+    font-family: "Give You Glory", serif;
     color: #5e6d64;
     font-weight: bold;
     letter-spacing: 3px;
@@ -306,7 +370,7 @@ body {
 .divider {
     background-color: rgba(0, 0, 0, 0.15);
     height: 2.0px;
-    margin: 8.5px 0;
+    margin: 20px 0;
 }
 
 .text-block .text-block-heading {
@@ -371,7 +435,7 @@ body {
 }
 
 .image-description-layout div:last-child {
-    flex: 1 0 360px;
+    flex: 1 1 360px;
 }
 
 /*
@@ -586,10 +650,42 @@ a.product {
 }
 
 
+/*********** IMAGE SCROLLER *************************/
+.image-hscroller {
+    margin-top: 20px;
+    width: calc(100% + 24px); /* + 24px so it goes to the edge of the screen, overriding the padding */
+    overflow-x: scroll;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+}
+
+.image-hscroller::-webkit-scrollbar {
+    display: none;
+}
+
+.hscroller-item {
+    height: 300px;
+    display: inline-block;
+    padding-right: 12px;
+    scroll-snap-align: center;
+}
+
+.scroll-wrapper .hscroller-item:last-child {
+    padding-right: 24px; /* add the page padding back to the last item */
+}
+
+.hscroller-item img {
+    height: 100%;
+}
+
+
 /*
  * Screen Size: Small
  */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 
     .non-mobile {
         display: none!important;
@@ -597,6 +693,12 @@ a.product {
 
     .mobile-only {
         display: block!important;
+    }
+
+    #footer .content-wrapper .nav ul li {
+        display: block;
+        float: none;
+        margin: 10px auto;
     }
 
 }
